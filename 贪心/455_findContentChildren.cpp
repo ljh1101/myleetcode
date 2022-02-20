@@ -2,7 +2,7 @@
  * @Author: Liu Jiahui
  * @Date: 2022-02-18 22:02:59
  * @Last Modified by: Liu Jiahui
- * @Last Modified time: 2022-02-18 22:28:55
+ * @Last Modified time: 2022-02-20 15:48:28
  */
 
 /*
@@ -32,6 +32,8 @@ using namespace std;
 class Solution
 {
 public:
+    //时间复杂度：O(nlogn)
+    //空间复杂度：O(1)
     int findContentChildren(vector<int> &g, vector<int> &s)
     {
         int maxContent = 0;

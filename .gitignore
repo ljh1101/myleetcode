@@ -3,3 +3,6 @@
 test.cpp
 test
 *.exe
+*.exe
+/build
+*.out

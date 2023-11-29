@@ -66,16 +66,16 @@ class Solution {
     }
 };
 
-class Solution {
+class Solution1 {
   public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
     {
         ListNode *l1_ptr = l1, *l2_ptr = l2;
         ListNode* result = new ListNode();
         ListNode* res_ptr = result;
-        int x = 0;  //进位位
+        int x = 0;  // 进位位
         while (l1_ptr != nullptr || l2_ptr != nullptr || x != 0) {
-            int m = l1_ptr == nullptr ? 0 : l1_ptr->val;  //两个被加数定义
+            int m = l1_ptr == nullptr ? 0 : l1_ptr->val;  // 两个被加数定义
             int n = l2_ptr == nullptr ? 0 : l2_ptr->val;
             x += m + n;
             res_ptr->next = new ListNode(x % 10);
@@ -88,5 +88,31 @@ class Solution {
         }
 
         return result->next;
+    }
+};
+
+class Solution2 {
+  public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
+    {
+        return add(l1, l2, 0);
+    }
+
+    ListNode* add(ListNode* l1, ListNode* l2, int num)
+    {
+        if (!l1 && !l2 && !num) {
+            return nullptr;
+        }
+        if (l1) {
+            num += l1->val;
+            l1 = l1->next;
+        }
+        if (l2) {
+            num += l2->val;
+            l2 = l2->next;
+        }
+        ListNode* res = new ListNode(num % 10);
+        res->next = add(l1, l2, num / 10);
+        return res;
     }
 };
